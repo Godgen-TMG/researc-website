@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful — ReseArc</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { wine: { DEFAULT: '#58111A', 700: '#58111A' }, gold: { DEFAULT: '#D4AF37', 100: '#F7EFD2', 300: '#E3C866', 600: '#B7912A' }, paper: '#FDFBF7', charcoal: '#1F2937' },
+          fontFamily: { display: ['"Fraunces"', 'serif'], body: ['"Inter"', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="font-body antialiased bg-paper text-charcoal">
+
+  <main class="min-h-screen flex flex-col">
+    <div class="flex-1 max-w-2xl w-full mx-auto px-6 py-16 sm:py-20">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-charcoal/50 hover:text-wine-700 transition-colors">
+        <i data-lucide="arrow-left" class="h-4 w-4"></i> Back to ReseArc
+      </a>
+
+      <div class="mt-10 text-center">
+        <div class="mx-auto h-16 w-16 rounded-full bg-gold/15 flex items-center justify-center">
+          <i data-lucide="check-circle-2" class="h-8 w-8 text-gold-600"></i>
+        </div>
+        <h1 class="mt-6 font-display text-4xl sm:text-5xl font-semibold text-charcoal">Payment Successful!</h1>
+        <p class="mt-4 text-lg text-charcoal/70 leading-relaxed">
+          Thank you for purchasing <span class="font-medium text-charcoal">Research Writing Made Easy</span>. Your download is ready below.
+        </p>
+      </div>
+
+      <div class="mt-12 rounded-2xl border-2 border-wine-700/15 bg-paper p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+          <div class="relative w-28 sm:w-32 shrink-0">
+            <img src="book.png" alt="Book Cover" class="relative w-full rounded-xl shadow-lg ring-1 ring-wine-900/10 -rotate-2" onerror="this.style.display='none';" />
+          </div>
+          <div class="flex-1 text-center sm:text-left">
+            <h2 class="font-display text-xl font-semibold text-charcoal">Your E-Book Is Ready</h2>
+            <p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">Research Writing Made Easy, by Ifeoluwa Odeyemi — full PDF, yours to keep.</p>
+            
+            <a href="https://drive.google.com/uc?export=download&id=1MUiwgtwIiaWlSqiPi0O45q4Lm24wGbo1" target="_blank" rel="noopener" class="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors">
+              <i data-lucide="download" class="h-4 w-4"></i> Download E-Book PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 rounded-2xl bg-wine-700 p-6 sm:p-8 text-paper">
+        <h2 class="font-display text-xl font-semibold">Join the ReseArc Mentorship Community</h2>
+        <p class="mt-2 text-sm text-paper/70 leading-relaxed">Connect directly with Ifeoluwa Odeyemi and fellow researchers for ongoing guidance and writing tips.</p>
+        <a href="https://t.me/+BhQAhI_wLHZkNTI8" target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors">
+          <i data-lucide="send" class="h-4 w-4"></i> Join Telegram Community
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

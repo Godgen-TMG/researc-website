@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Writing Made Easy — ReseArc</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { wine: { DEFAULT: '#58111A', 700: '#58111A', 800: '#3F0C13', 900: '#28070C' }, gold: { DEFAULT: '#D4AF37', 300: '#E3C866' }, paper: '#FDFBF7', charcoal: '#1F2937' },
+          fontFamily: { display: ['"Fraunces"', 'serif'], body: ['"Inter"', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="bg-paper font-body text-charcoal antialiased">
+
+  <header class="w-full sticky top-0 z-50 bg-paper/90 backdrop-blur-sm border-b border-wine-700/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-display text-2xl font-semibold text-wine-700">ReseArc</a>
+      <a href="index.html" class="text-sm font-semibold text-charcoal/70 hover:text-wine-700">← Back to Home</a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gold-600 bg-gold/10 px-3 py-1 rounded-full">Flagship Publication</span>
+      <h1 class="mt-4 font-display text-4xl sm:text-5xl font-semibold text-wine-700">Research Writing Made Easy</h1>
+      <p class="mt-2 text-charcoal/60">By Ifeoluwa Odeyemi</p>
+    </div>
+
+    <!-- PURCHASE OPTIONS -->
+    <div id="pricing" class="mt-14 grid md:grid-cols-2 gap-8">
+      
+      <!-- Soft Copy Card -->
+      <div class="rounded-2xl border-2 border-wine-700/15 bg-white p-8 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-2xl font-semibold text-wine-700">Soft Copy (PDF)</h3>
+            <i data-lucide="file-text" class="h-6 w-6 text-gold"></i>
+          </div>
+          <p class="mt-4 text-sm text-charcoal/70">Instant digital download. Access on phone, tablet, or laptop immediately after payment.</p>
+          <ul class="mt-6 space-y-3 text-sm text-charcoal/80">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-wine-700"></i> Instant PDF Access</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-wine-700"></i> Free Telegram Community Access</li>
+          </ul>
+        </div>
+        
+        <a href="https://paystack.shop/pay/etk4e-khvl" target="_blank" rel="noopener" class="mt-8 w-full text-center rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors">
+          Buy Soft Copy
+        </a>
+      </div>
+
+      <!-- Hard Copy Card with FormSubmit -->
+      <div class="rounded-2xl border-2 border-wine-700 bg-white p-8 shadow-md">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display text-2xl font-semibold text-wine-700">Hard Copy (Physical)</h3>
+          <i data-lucide="truck" class="h-6 w-6 text-gold"></i>
+        </div>
+        <p class="mt-2 text-sm text-charcoal/70">Delivered directly to your address across Nigeria.</p>
+
+        <form action="https://formsubmit.co/official.researc@gmail.com" method="POST" class="mt-6 space-y-4">
+          <input type="hidden" name="_subject" value="New Hard Copy Order Request - Research Writing Made Easy">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://paystack.shop/pay/ulgb2bxq6r">
+          <input type="hidden" name="_cc" id="ccEmail">
+
+          <div>
+            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Full Name</label>
+            <input type="text" name="Full Name" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Email Address</label>
+            <input type="email" name="Email" id="custEmail" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Phone Number (WhatsApp)</label>
+            <input type="tel" name="Phone Number" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Delivery Address & State</label>
+            <textarea name="Delivery Details" rows="2" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700"></textarea>
+          </div>
+
+          <button type="submit" class="w-full rounded-full bg-wine-700 px-6 py-3.5 text-sm font-semibold text-paper hover:bg-wine-800 transition-colors">
+            Submit Details & Proceed to Pay
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+    const custEmail = document.getElementById('custEmail');
+    const ccEmail = document.getElementById('ccEmail');
+    custEmail.addEventListener('input', () => { ccEmail.value = custEmail.value; });
+  </script>
+</body>
+</html>
