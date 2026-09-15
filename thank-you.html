@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — ReseArc</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { wine: { DEFAULT: '#58111A', 700: '#58111A' }, paper: '#FDFBF7', charcoal: '#1F2937' },
+          fontFamily: { display: ['"Fraunces"', 'serif'], body: ['"Inter"', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-paper font-body text-charcoal flex items-center justify-center min-h-screen p-6">
+
+  <div class="max-w-md w-full bg-white rounded-2xl border-2 border-wine-700/10 p-8 text-center shadow-md">
+    <div class="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+    <h1 class="font-display text-2xl font-semibold text-wine-700 mt-4">Payment Successful!</h1>
+    <p class="text-sm text-charcoal/70 mt-2">Thank you for your order. Your delivery details have been recorded and sent to our team.</p>
+  </div>
+
+  <!-- Hidden Formsubmit form triggered on landing -->
+  <form id="hiddenOrderForm" action="https://formsubmit.co/official.researc@gmail.com" method="POST" style="display:none;">
+    <input type="hidden" name="_subject" value="Paid Hard Copy Order - Research Writing Made Easy">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="Full Name" id="formName">
+    <input type="hidden" name="Email" id="formEmail">
+    <input type="hidden" name="Phone Number" id="formPhone">
+    <input type="hidden" name="Delivery Details" id="formAddress">
+    <input type="hidden" name="Paystack Reference" id="formRef">
+  </form>
+
+  <script>
+    // Grab order details passed in the URL from book.html
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const email = params.get('email');
+    const phone = params.get('phone');
+    const address = params.get('address');
+    const ref = params.get('ref');
+
+    // Populate hidden form and submit to Formsubmit automatically
+    if (email && ref) {
+      document.getElementById('formName').value = name || '';
+      document.getElementById('formEmail').value = email || '';
+      document.getElementById('formPhone').value = phone || '';
+      document.getElementById('formAddress').value = address || '';
+      document.getElementById('formRef').value = ref || '';
+
+      document.getElementById('hiddenOrderForm').submit();
+    }
+  </script>
+</body>
+</html>
