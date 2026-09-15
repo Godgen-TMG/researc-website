@@ -3,57 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Order Confirmed — ReseArc</title>
+  <title>Payment Successful — Research Writing Made Easy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { wine: { DEFAULT: '#58111A', 700: '#58111A' }, paper: '#FDFBF7', charcoal: '#1F2937' },
+          colors: { wine: { DEFAULT: '#58111A', 700: '#58111A' }, gold: '#D4AF37', paper: '#FDFBF7', charcoal: '#1F2937' },
           fontFamily: { display: ['"Fraunces"', 'serif'], body: ['"Inter"', 'sans-serif'] }
         }
       }
     };
   </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body class="bg-paper font-body text-charcoal flex items-center justify-center min-h-screen p-6">
+<body class="bg-paper font-body text-charcoal antialiased min-h-screen flex items-center justify-center p-6">
 
-  <div class="max-w-md w-full bg-white rounded-2xl border-2 border-wine-700/10 p-8 text-center shadow-md">
-    <div class="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
-    <h1 class="font-display text-2xl font-semibold text-wine-700 mt-4">Payment Successful!</h1>
-    <p class="text-sm text-charcoal/70 mt-2">Thank you for your order. Your delivery details have been recorded and sent to our team.</p>
+  <div class="max-w-xl w-full bg-white rounded-2xl border border-wine-700/10 shadow-xl p-8 text-center">
+    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+      <i data-lucide="check-circle" class="w-10 h-10"></i>
+    </div>
+    
+    <h1 class="font-display text-3xl font-semibold text-wine-700">Payment Confirmed!</h1>
+    <p class="mt-2 text-charcoal/70 text-sm">Thank you for your purchase of <strong>Research Writing Made Easy</strong>.</p>
+
+    <!-- SOFT COPY SECTION -->
+    <div id="softCopyMessage" class="hidden mt-8 p-6 bg-gold/10 rounded-xl border border-gold/30">
+      <p class="font-semibold text-wine-700">Your download should begin automatically in a few seconds...</p>
+      <p class="text-xs text-charcoal/60 mt-1">If the download doesn't start, click the button below:</p>
+      <a id="downloadBtn" href="https://drive.google.com/uc?export=download&id=1MUiwgtwIiaWlSqiPi0O45q4Lm24wGbo1" download class="mt-4 inline-flex items-center gap-2 rounded-full bg-wine-700 px-6 py-3 text-sm font-semibold text-paper hover:bg-wine-800 transition-colors">
+        <i data-lucide="download" class="w-4 h-4"></i> Download PDF Copy
+      </a>
+    </div>
+
+    <!-- HARD COPY SECTION -->
+    <div id="hardCopyMessage" class="hidden mt-8 p-6 bg-wine-700/5 rounded-xl border border-wine-700/20">
+      <p class="font-semibold text-wine-700">Order Placed Successfully!</p>
+      <p class="text-sm text-charcoal/80 mt-2">We have received your delivery details. Our logistics team will process your order and contact you for dispatch.</p>
+    </div>
+
+    <!-- Hidden FormSubmit form -->
+    <form id="notifyForm" action="https://formsubmit.co/official.researc@gmail.com" method="POST" class="hidden">
+      <input type="hidden" name="_subject" id="emailSubject" value="New Book Purchase">
+      <input type="hidden" name="Order_Type" id="formType">
+      <input type="hidden" name="Customer_Name" id="formName">
+      <input type="hidden" name="Customer_Email" id="formEmail">
+      <input type="hidden" name="Customer_Phone" id="formPhone">
+      <input type="hidden" name="Delivery_Address" id="formAddress">
+      <input type="hidden" name="Paystack_Ref" id="formRef">
+      <input type="hidden" name="_captcha" value="false">
+    </form>
+
+    <div class="mt-8 pt-6 border-t border-gray-100">
+      <a href="index.html" class="text-sm font-semibold text-wine-700 hover:underline">← Return to Homepage</a>
+    </div>
   </div>
 
-  <!-- Hidden Formsubmit form triggered on landing -->
-  <form id="hiddenOrderForm" action="https://formsubmit.co/official.researc@gmail.com" method="POST" style="display:none;">
-    <input type="hidden" name="_subject" value="Paid Hard Copy Order - Research Writing Made Easy">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="Full Name" id="formName">
-    <input type="hidden" name="Email" id="formEmail">
-    <input type="hidden" name="Phone Number" id="formPhone">
-    <input type="hidden" name="Delivery Details" id="formAddress">
-    <input type="hidden" name="Paystack Reference" id="formRef">
-  </form>
-
   <script>
-    // Grab order details passed in the URL from book.html
+    lucide.createIcons();
+
     const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
-    const email = params.get('email');
-    const phone = params.get('phone');
-    const address = params.get('address');
-    const ref = params.get('ref');
+    const type = params.get('type');
+    const name = params.get('name') || 'N/A';
+    const email = params.get('email') || 'N/A';
+    const phone = params.get('phone') || 'N/A';
+    const address = params.get('address') || 'N/A';
+    const ref = params.get('ref') || 'N/A';
 
-    // Populate hidden form and submit to Formsubmit automatically
-    if (email && ref) {
-      document.getElementById('formName').value = name || '';
-      document.getElementById('formEmail').value = email || '';
-      document.getElementById('formPhone').value = phone || '';
-      document.getElementById('formAddress').value = address || '';
-      document.getElementById('formRef').value = ref || '';
+    // Populate hidden form
+    document.getElementById('formType').value = type === 'soft' ? 'Soft Copy (PDF)' : 'Hard Copy (Physical)';
+    document.getElementById('emailSubject').value = `Paid Order Alert: ${type === 'soft' ? 'Soft Copy' : 'Hard Copy'} [${ref}]`;
+    document.getElementById('formName').value = name;
+    document.getElementById('formEmail').value = email;
+    document.getElementById('formPhone').value = phone;
+    document.getElementById('formAddress').value = address;
+    document.getElementById('formRef').value = ref;
 
-      document.getElementById('hiddenOrderForm').submit();
+    if (type === 'soft') {
+      document.getElementById('softCopyMessage').classList.remove('hidden');
+      
+      // Trigger automatic PDF download
+      setTimeout(() => {
+        window.location.href = "https://drive.google.com/uc?export=download&id=1MUiwgtwIiaWlSqiPi0O45q4Lm24wGbo1";
+      }, 1000);
+
+    } else {
+      document.getElementById('hardCopyMessage').classList.remove('hidden');
+    }
+
+    // Silently post payment notification to official.researc@gmail.com
+    if (ref !== 'N/A') {
+      const form = document.getElementById('notifyForm');
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      }).catch(err => console.log('Order notification sent.'));
     }
   </script>
 </body>
