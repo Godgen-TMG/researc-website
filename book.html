@@ -16,6 +16,8 @@
     };
   </script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Paystack Inline Popup SDK -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body class="bg-paper font-body text-charcoal antialiased">
 
@@ -43,6 +45,7 @@
             <h3 class="font-display text-2xl font-semibold text-wine-700">Soft Copy (PDF)</h3>
             <i data-lucide="file-text" class="h-6 w-6 text-gold"></i>
           </div>
+          <p class="mt-2 text-2xl font-semibold text-wine-700">₦10,000</p>
           <p class="mt-4 text-sm text-charcoal/70">Instant digital download. Access on phone, tablet, or laptop immediately after payment.</p>
           <ul class="mt-6 space-y-3 text-sm text-charcoal/80">
             <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-wine-700"></i> Instant PDF Access</li>
@@ -51,46 +54,50 @@
         </div>
         
         <a href="https://paystack.shop/pay/etk4e-khvl" target="_blank" rel="noopener" class="mt-8 w-full text-center rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors">
-          Buy Soft Copy
+          Buy Soft Copy (₦10,000)
         </a>
       </div>
 
-      <!-- Hard Copy Card with FormSubmit -->
-      <div class="rounded-2xl border-2 border-wine-700 bg-white p-8 shadow-md">
-        <div class="flex items-center justify-between">
-          <h3 class="font-display text-2xl font-semibold text-wine-700">Hard Copy (Physical)</h3>
-          <i data-lucide="truck" class="h-6 w-6 text-gold"></i>
+      <!-- Hard Copy Card -->
+      <div class="rounded-2xl border-2 border-wine-700 bg-white p-8 shadow-md flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-2xl font-semibold text-wine-700">Hard Copy (Physical)</h3>
+            <i data-lucide="truck" class="h-6 w-6 text-gold"></i>
+          </div>
+          <p class="mt-2 text-2xl font-semibold text-wine-700">₦12,500</p>
+          <p class="mt-2 text-sm text-charcoal/70">Delivered directly to your address across Nigeria.</p>
+
+          <form id="hardCopyForm" onsubmit="payWithPaystack(event)" class="mt-6 space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-charcoal/70 uppercase">Full Name</label>
+              <input type="text" id="fullName" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-charcoal/70 uppercase">Email Address</label>
+              <input type="email" id="custEmail" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-charcoal/70 uppercase">Phone Number (WhatsApp)</label>
+              <input type="tel" id="custPhone" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-charcoal/70 uppercase">Delivery Address & State</label>
+              <textarea id="custAddress" rows="2" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700"></textarea>
+            </div>
+
+            <button type="submit" class="w-full rounded-full bg-wine-700 px-6 py-3.5 text-sm font-semibold text-paper hover:bg-wine-800 transition-colors">
+              Pay ₦12,500 & Confirm Order
+            </button>
+          </form>
         </div>
-        <p class="mt-2 text-sm text-charcoal/70">Delivered directly to your address across Nigeria.</p>
 
-        <form action="https://formsubmit.co/official.researc@gmail.com" method="POST" class="mt-6 space-y-4">
-          <input type="hidden" name="_subject" value="New Hard Copy Order Request - Research Writing Made Easy">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://paystack.shop/pay/ulgb2bxq6r">
-          <input type="hidden" name="_cc" id="ccEmail">
-
-          <div>
-            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Full Name</label>
-            <input type="text" name="Full Name" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Email Address</label>
-            <input type="email" name="Email" id="custEmail" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Phone Number (WhatsApp)</label>
-            <input type="tel" name="Phone Number" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-charcoal/70 uppercase">Delivery Address & State</label>
-            <textarea name="Delivery Details" rows="2" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:ring-wine-700 focus:border-wine-700"></textarea>
-          </div>
-
-          <button type="submit" class="w-full rounded-full bg-wine-700 px-6 py-3.5 text-sm font-semibold text-paper hover:bg-wine-800 transition-colors">
-            Submit Details & Proceed to Pay
-          </button>
-        </form>
+        <div class="mt-4 text-center">
+          <p class="text-xs text-charcoal/60">Prefer paying via direct link?</p>
+          <a href="https://paystack.shop/pay/ulgb2bxq6r" target="_blank" rel="noopener" class="text-xs font-semibold text-wine-700 hover:underline">
+            Pay ₦12,500 via Paystack Direct Store Link →
+          </a>
+        </div>
       </div>
 
     </div>
@@ -98,9 +105,40 @@
 
   <script>
     lucide.createIcons();
-    const custEmail = document.getElementById('custEmail');
-    const ccEmail = document.getElementById('ccEmail');
-    custEmail.addEventListener('input', () => { ccEmail.value = custEmail.value; });
+
+    function payWithPaystack(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('fullName').value;
+      const email = document.getElementById('custEmail').value;
+      const phone = document.getElementById('custPhone').value;
+      const address = document.getElementById('custAddress').value;
+
+      let handler = PaystackPop.setup({
+        key: 'pk_live_278f6d9e51db47046ea1bb115244423ab4acc049',
+        email: email,
+        amount: 1250000, // ₦12,500 in kobo
+        currency: 'NGN',
+        ref: 'RME_HARD_' + Math.floor((Math.random() * 1000000000) + 1),
+        onClose: function() {
+          alert('Transaction cancelled. Your order was not submitted.');
+        },
+        callback: function(response) {
+          // Redirects ONLY on successful payment
+          const queryParams = new URLSearchParams({
+            name: name,
+            email: email,
+            phone: phone,
+            address: address,
+            ref: response.reference
+          }).toString();
+
+          window.location.href = "thank-you.html?" + queryParams;
+        }
+      });
+
+      handler.openIframe();
+    }
   </script>
 </body>
 </html>
