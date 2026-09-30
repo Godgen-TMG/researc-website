@@ -62,18 +62,6 @@
       </div>
     </div>
 
-    <!-- Hidden FormSubmit form -->
-    <form id="notifyForm" action="https://formsubmit.co/official.researc@gmail.com" method="POST" class="hidden">
-      <input type="hidden" name="_subject" id="emailSubject" value="New Book Purchase">
-      <input type="hidden" name="Order_Type" id="formType">
-      <input type="hidden" name="Customer_Name" id="formName">
-      <input type="hidden" name="Customer_Email" id="formEmail">
-      <input type="hidden" name="Customer_Phone" id="formPhone">
-      <input type="hidden" name="Delivery_Address" id="formAddress">
-      <input type="hidden" name="Paystack_Ref" id="formRef">
-      <input type="hidden" name="_captcha" value="false">
-    </form>
-
     <div class="mt-8 pt-6 border-t border-gray-100">
       <a href="index.html" class="text-sm font-semibold text-wine-700 hover:underline">← Return to Homepage</a>
     </div>
@@ -90,15 +78,6 @@
     const address = params.get('address') || 'N/A';
     const ref = params.get('ref') || 'N/A';
 
-    // Populate hidden notification form
-    document.getElementById('formType').value = type === 'soft' ? 'Soft Copy (PDF)' : 'Hard Copy (Physical)';
-    document.getElementById('emailSubject').value = `Paid Order Alert: ${type === 'soft' ? 'Soft Copy' : 'Hard Copy'} [${ref}]`;
-    document.getElementById('formName').value = name;
-    document.getElementById('formEmail').value = email;
-    document.getElementById('formPhone').value = phone;
-    document.getElementById('formAddress').value = address;
-    document.getElementById('formRef').value = ref;
-
     if (type === 'soft') {
       document.getElementById('softCopyMessage').classList.remove('hidden');
       
@@ -111,17 +90,25 @@
       document.getElementById('hardCopyMessage').classList.remove('hidden');
     }
 
-    // Reliably post payment notification to official.researc@gmail.com
+    // Direct background dispatch to Google Sheet & Gmail
     if (ref !== 'N/A') {
-      const form = document.getElementById('notifyForm');
-      fetch(form.action, {
+      fetch('https://script.google.com/macros/s/AKfycbw6VChSAVq8ZmUZOSCrdxVy8Gg7DOuOgi1zEc8uj53t5ijNesxW4ya1fsIh_QHzkUc0/exec', {
         method: 'POST',
-        body: new FormData(form),
-        keepalive: true,
-        mode: 'no-cors'
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          order_type: type === 'soft' ? 'Soft Copy (PDF)' : 'Hard Copy (Physical)',
+          customer_name: name,
+          customer_email: email,
+          customer_phone: phone,
+          delivery_address: address,
+          paystack_reference: ref
+        })
       })
-      .then(() => console.log('Order notification dispatched.'))
-      .catch(err => console.error('Notification error:', err));
+      .then(() => console.log('Order notification successfully sent to Google Sheet.'))
+      .catch(err => console.error('Dispatch error:', err));
     }
   </script>
 </body>
