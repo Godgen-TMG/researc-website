@@ -111,13 +111,17 @@
       document.getElementById('hardCopyMessage').classList.remove('hidden');
     }
 
-    // Silently post payment notification to official.researc@gmail.com
+    // Reliably post payment notification to official.researc@gmail.com
     if (ref !== 'N/A') {
       const form = document.getElementById('notifyForm');
       fetch(form.action, {
         method: 'POST',
-        body: new FormData(form)
-      }).catch(err => console.log('Order notification sent.'));
+        body: new FormData(form),
+        keepalive: true,
+        mode: 'no-cors'
+      })
+      .then(() => console.log('Order notification dispatched.'))
+      .catch(err => console.error('Notification error:', err));
     }
   </script>
 </body>
