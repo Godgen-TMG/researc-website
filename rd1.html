@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNBQS92L4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KNBQS92L4Q');
+  </script>
+
+  <title>RD1 Student Onboarding — ReseArc Mentorship Access</title>
+  
+  <!-- Prevent Google & Search Engines from Indexing This Verification Gateway -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wine: { DEFAULT: '#58111A', 50: '#FBEAEC', 100: '#F1CBD0', 300: '#B85A66', 600: '#701620', 700: '#58111A', 800: '#3F0C13', 900: '#28070C' },
+            gold: { DEFAULT: '#D4AF37', 100: '#F7EFD2', 300: '#E3C866', 600: '#B7912A' },
+            paper: '#FDFBF7',
+            charcoal: '#1F2937'
+          },
+          fontFamily: { display: ['"Fraunces"', 'serif'], body: ['"Inter"', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="bg-paper font-body text-charcoal antialiased min-h-screen py-10 px-4 sm:px-6">
+
+  <div class="max-w-2xl mx-auto">
+    <!-- Header -->
+    <div class="text-center">
+      <a href="index.html" class="inline-block">
+        <span class="font-display text-2xl font-semibold text-wine-700">ReseArc</span>
+      </a>
+      <div class="mt-4 inline-flex items-center gap-1.5 rounded-full bg-wine-700/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-wine-700">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> RD1 Initiative Student Onboarding
+      </div>
+      <h1 class="mt-3 font-display text-3xl sm:text-4xl font-semibold text-wine-700">
+        Unlock Your Community Access
+      </h1>
+      <p class="mt-2 text-sm text-charcoal/70 max-w-lg mx-auto leading-relaxed">
+        Welcome to the Research from Day One Initiative. Complete the 4 onboarding tasks below to verify your student seat and activate your 1-year mentorship access.
+      </p>
+    </div>
+
+    <!-- Progress Tracker -->
+    <div class="mt-8 bg-white border border-wine-700/15 rounded-2xl p-4 sm:p-6 shadow-sm">
+      <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-charcoal/70">
+        <span>Onboarding Progress</span>
+        <span id="progressText" class="text-wine-700 font-bold">0 of 4 Completed</span>
+      </div>
+      <div class="mt-2.5 h-2.5 w-full bg-wine-700/10 rounded-full overflow-hidden">
+        <div id="progressBar" class="h-full bg-gold transition-all duration-500 rounded-full" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Task List -->
+    <div class="mt-6 space-y-4">
+      
+      <!-- TASK 1: Instagram -->
+      <div id="cardTask1" class="bg-white border-2 border-wine-700/15 rounded-2xl p-5 sm:p-6 transition-all shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex items-start gap-3.5">
+            <div id="badgeTask1" class="h-9 w-9 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-charcoal">Task 1: Follow on Instagram &amp; Like Recent Posts</h2>
+              <p class="text-xs text-charcoal/65 mt-0.5">Follow the official ReseArc Instagram page and like our recent posts.</p>
+            </div>
+          </div>
+          <div id="statusTask1" class="shrink-0 text-charcoal/30">
+            <i data-lucide="circle" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <a id="btnTask1" href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=dwr1mzv" target="_blank" rel="noopener" onclick="startSocialVerification(1)" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 px-5 py-2.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open Instagram &amp; Follow
+          </a>
+          <span id="countdown1" class="text-xs text-charcoal/50 italic hidden">Verifying follow...</span>
+        </div>
+      </div>
+
+      <!-- TASK 2: LinkedIn -->
+      <div id="cardTask2" class="bg-white border-2 border-gray-200 opacity-60 rounded-2xl p-5 sm:p-6 transition-all pointer-events-none shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex items-start gap-3.5">
+            <div id="badgeTask2" class="h-9 w-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-charcoal">Task 2: Follow ReseArc on LinkedIn</h2>
+              <p class="text-xs text-charcoal/65 mt-0.5">Follow our LinkedIn organisation page to stay connected with research insights.</p>
+            </div>
+          </div>
+          <div id="statusTask2" class="shrink-0 text-charcoal/30">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <a id="btnTask2" href="https://www.linkedin.com/company/official-researc/" target="_blank" rel="noopener" onclick="startSocialVerification(2)" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open LinkedIn &amp; Follow
+          </a>
+          <span id="countdown2" class="text-xs text-charcoal/50 italic hidden">Verifying follow...</span>
+        </div>
+      </div>
+
+      <!-- TASK 3: TikTok -->
+      <div id="cardTask3" class="bg-white border-2 border-gray-200 opacity-60 rounded-2xl p-5 sm:p-6 transition-all pointer-events-none shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex items-start gap-3.5">
+            <div id="badgeTask3" class="h-9 w-9 rounded-xl bg-gray-100 text-charcoal flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="video" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-charcoal">Task 3: Follow Convener on TikTok &amp; Like Recent Posts</h2>
+              <p class="text-xs text-charcoal/65 mt-0.5">Follow Ifeoluwa Odeyemi on TikTok for short-form academic breakdowns.</p>
+            </div>
+          </div>
+          <div id="statusTask3" class="shrink-0 text-charcoal/30">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <a id="btnTask3" href="https://vm.tiktok.com/ZS9D47db8aVsG-rp3IZ/" target="_blank" rel="noopener" onclick="startSocialVerification(3)" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-charcoal px-5 py-2.5 text-xs font-semibold text-white hover:bg-black transition-colors">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open TikTok &amp; Follow
+          </a>
+          <span id="countdown3" class="text-xs text-charcoal/50 italic hidden">Verifying follow...</span>
+        </div>
+      </div>
+
+      <!-- TASK 4: Student Details Form -->
+      <div id="cardTask4" class="bg-white border-2 border-gray-200 opacity-60 rounded-2xl p-5 sm:p-6 transition-all pointer-events-none shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex items-start gap-3.5">
+            <div id="badgeTask4" class="h-9 w-9 rounded-xl bg-gold/20 text-wine-700 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-semibold text-charcoal">Task 4: Submit Your Student Verification Record</h2>
+              <p class="text-xs text-charcoal/65 mt-0.5">Your record will be formatted and logged directly into the RD1 cohort database.</p>
+            </div>
+          </div>
+          <div id="statusTask4" class="shrink-0 text-charcoal/30">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <form id="rd1Form" onsubmit="submitStudentData(event)" class="mt-5 space-y-3.5 pt-4 border-t border-gray-100">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">Full Name (Surname First)</label>
+              <input type="text" id="stdName" required placeholder="e.g. Adeleke Daniel T." class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700">
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">Email Address</label>
+              <input type="email" id="stdEmail" required placeholder="e.g. adeleke@gmail.com" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">WhatsApp Phone Number</label>
+              <input type="tel" id="stdPhone" required placeholder="e.g. 08123456789" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700">
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">Institution / University</label>
+              <input type="text" id="stdInstitution" required placeholder="e.g. Obafemi Awolowo University" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">Faculty &amp; Department</label>
+              <input type="text" id="stdDept" required placeholder="e.g. Social Sciences / Political Science" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700">
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">Matric / Registration Number</label>
+              <input type="text" id="stdMatric" required placeholder="e.g. POL/2026/042 or UTME Reg No" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-charcoal/70">Academic Level</label>
+            <select id="stdLevel" required class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs focus:ring-wine-700 focus:border-wine-700 bg-white">
+              <option value="" disabled selected>Select Current Level</option>
+              <option value="100 Level (Freshman)">100 Level (Freshman)</option>
+              <option value="200 Level">200 Level</option>
+              <option value="300 Level">300 Level</option>
+              <option value="400 Level+">400 Level+</option>
+              <option value="Postgraduate">Postgraduate</option>
+            </select>
+          </div>
+
+          <button id="btnSubmitData" type="submit" class="w-full mt-2 rounded-full bg-wine-700 px-6 py-3 text-xs font-semibold text-paper hover:bg-wine-800 transition-colors flex items-center justify-center gap-2">
+            <span>Log Verification Details</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- UNLOCKED TELEGRAM SECTION -->
+    <div id="telegramUnlockArea" class="hidden mt-8 p-6 sm:p-8 bg-wine-700 text-paper rounded-2xl border border-wine-800 text-center shadow-lg">
+      <div class="h-14 w-14 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="party-popper" class="w-7 h-7 text-gold"></i>
+      </div>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-paper">All Tasks Verified!</h2>
+      <p class="text-xs sm:text-sm text-paper/80 mt-2 max-w-md mx-auto">
+        Your student information has been logged into the RD1 database. Click below to join your official ReseArc Mentorship cohort.
+      </p>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a id="telegramJoinLink" href="https://t.me/+BhQAhI_wLHZkNTI8" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors w-full sm:w-auto shadow-md">
+          <i data-lucide="send" class="w-4 h-4"></i> Join Telegram Mentorship Group
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-10 text-center text-xs text-charcoal/40">
+      ReseArc © 2026. Research from Day One (RD1) Initiative. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Track completed tasks (1 through 4)
+    let completed = { 1: false, 2: false, 3: false, 4: false };
+
+    // Google Apps Script Web App URL
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw6VChSAVq8ZmUZOSCrdxVy8Gg7DOuOgi1zEc8uj53t5ijNesxW4ya1fsIh_QHzkUc0/exec';
+
+    function updateProgress() {
+      const count = Object.values(completed).filter(Boolean).length;
+      const pct = (count / 4) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('progressText').textContent = `${count} of 4 Completed`;
+
+      if (count === 4) {
+        document.getElementById('telegramUnlockArea').classList.remove('hidden');
+        document.getElementById('telegramUnlockArea').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function markTaskComplete(taskId) {
+      if (completed[taskId]) return;
+      completed[taskId] = true;
+
+      // Update badge & status icon
+      const status = document.getElementById(`statusTask${taskId}`);
+      status.innerHTML = `<i data-lucide="check-circle-2" class="w-6 h-6 text-green-600"></i>`;
+      
+      const card = document.getElementById(`cardTask${taskId}`);
+      card.classList.remove('border-wine-700/15', 'border-gray-200');
+      card.classList.add('border-green-500/30', 'bg-green-50/20');
+
+      // Unlock next task card
+      const nextId = taskId + 1;
+      if (nextId <= 4) {
+        const nextCard = document.getElementById(`cardTask${nextId}`);
+        nextCard.classList.remove('opacity-60', 'pointer-events-none', 'border-gray-200');
+        nextCard.classList.add('border-wine-700/20');
+        
+        const nextStatus = document.getElementById(`statusTask${nextId}`);
+        nextStatus.innerHTML = `<i data-lucide="circle" class="w-6 h-6 text-charcoal/30"></i>`;
+      }
+
+      lucide.createIcons();
+      updateProgress();
+    }
+
+    // Handles Tasks 1, 2, and 3 verification countdown
+    function startSocialVerification(taskId) {
+      const countdown = document.getElementById(`countdown${taskId}`);
+      const btn = document.getElementById(`btnTask${taskId}`);
+      
+      countdown.classList.remove('hidden');
+      countdown.textContent = "Verifying follow...";
+      btn.classList.add('pointer-events-none', 'opacity-70');
+
+      let seconds = 5;
+      const interval = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+          countdown.textContent = `Verifying follow (${seconds}s)...`;
+        } else {
+          clearInterval(interval);
+          countdown.classList.add('hidden');
+          btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> Followed`;
+          markTaskComplete(taskId);
+        }
+      }, 1000);
+    }
+
+    // Handles Task 4 Submission directly to RD1 Cohort Tab
+    function submitStudentData(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('btnSubmitData');
+      btn.disabled = true;
+      btn.innerHTML = `<span>Saving Record...</span>`;
+
+      const payload = {
+        type: "rd1_onboarding",
+        name: document.getElementById('stdName').value.trim(),
+        email: document.getElementById('stdEmail').value.trim(),
+        phone: document.getElementById('stdPhone').value.trim(),
+        institution: document.getElementById('stdInstitution').value.trim(),
+        department: document.getElementById('stdDept').value.trim(),
+        matric: document.getElementById('stdMatric').value.trim(),
+        level: document.getElementById('stdLevel').value
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> Verified &amp; Saved`;
+        btn.classList.remove('bg-wine-700', 'hover:bg-wine-800');
+        btn.classList.add('bg-green-600');
+        
+        ['stdName', 'stdEmail', 'stdPhone', 'stdInstitution', 'stdDept', 'stdMatric', 'stdLevel'].forEach(id => {
+          document.getElementById(id).disabled = true;
+        });
+
+        markTaskComplete(4);
+      })
+      .catch(err => {
+        console.error('Error logging student:', err);
+        btn.disabled = false;
+        btn.innerHTML = `<span>Error. Retry Submission</span>`;
+      });
+    }
+  </script>
+</body>
+</html>
