@@ -15,8 +15,6 @@
   </script>
 
   <title>Payment Successful — Research Writing Made Easy</title>
-  
-  <!-- Prevent Google & Search Engines from Indexing This Page -->
   <meta name="robots" content="noindex, nofollow" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -48,12 +46,10 @@
       <p class="text-xs text-charcoal/60 mt-1">If the download doesn't start, click the download button below:</p>
       
       <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <!-- PDF Direct Download -->
         <a id="downloadBtn" href="https://drive.google.com/uc?export=download&id=1C9RuYt6VRRLfKIwxogt7rVNgmPXdz1bG" download class="inline-flex items-center gap-2 rounded-full bg-wine-700 px-6 py-3 text-sm font-semibold text-paper hover:bg-wine-800 transition-colors w-full sm:w-auto justify-center">
           <i data-lucide="download" class="w-4 h-4"></i> Download PDF Copy
         </a>
 
-        <!-- Locked Telegram Community Access -->
         <a href="https://t.me/+BhQAhI_wLHZkNTI8" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-[#24A1DE] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1D82B3] transition-colors w-full sm:w-auto justify-center">
           <i data-lucide="send" class="w-4 h-4"></i> Join Telegram Community
         </a>
@@ -86,39 +82,40 @@
     const name = params.get('name') || 'N/A';
     const email = params.get('email') || 'N/A';
     const phone = params.get('phone') || 'N/A';
+    const institution = params.get('institution') || 'N/A';
+    const dept = params.get('dept') || 'N/A';
+    const level = params.get('level') || 'N/A';
     const address = params.get('address') || 'N/A';
     const ref = params.get('ref') || 'N/A';
 
     if (type === 'soft') {
       document.getElementById('softCopyMessage').classList.remove('hidden');
       
-      // Trigger automatic PDF download
       setTimeout(() => {
         window.location.href = "https://drive.google.com/uc?export=download&id=1C9RuYt6VRRLfKIwxogt7rVNgmPXdz1bG";
       }, 1000);
-
     } else {
       document.getElementById('hardCopyMessage').classList.remove('hidden');
     }
 
-    // Direct background dispatch to Google Sheet & Gmail
     if (ref !== 'N/A') {
       fetch('https://script.google.com/macros/s/AKfycbw6VChSAVq8ZmUZOSCrdxVy8Gg7DOuOgi1zEc8uj53t5ijNesxW4ya1fsIh_QHzkUc0/exec', {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           order_type: type === 'soft' ? 'Soft Copy (PDF)' : 'Hard Copy (Physical)',
           customer_name: name,
           customer_email: email,
           customer_phone: phone,
+          institution: institution,
+          department: dept,
+          level: level,
           delivery_address: address,
           paystack_reference: ref
         })
       })
-      .then(() => console.log('Order notification successfully sent to Google Sheet.'))
+      .then(() => console.log('Order logged to Google Sheet.'))
       .catch(err => console.error('Dispatch error:', err));
     }
   </script>
