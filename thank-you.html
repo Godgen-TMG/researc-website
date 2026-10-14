@@ -91,14 +91,21 @@
     if (type === 'soft') {
       document.getElementById('softCopyMessage').classList.remove('hidden');
       
-      setTimeout(() => {
-        window.location.href = "https://drive.google.com/uc?export=download&id=1C9RuYt6VRRLfKIwxogt7rVNgmPXdz1bG";
-      }, 1000);
+      // Only auto-trigger download once per reference
+      if (ref !== 'N/A' && !localStorage.getItem('downloaded_' + ref)) {
+        localStorage.setItem('downloaded_' + ref, 'true');
+        setTimeout(() => {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1C9RuYt6VRRLfKIwxogt7rVNgmPXdz1bG";
+        }, 1000);
+      }
     } else {
       document.getElementById('hardCopyMessage').classList.remove('hidden');
     }
 
-    if (ref !== 'N/A') {
+    // Only dispatch to Google Sheet if this reference hasn't been logged by this browser yet
+    if (ref !== 'N/A' && !localStorage.getItem('logged_' + ref)) {
+      localStorage.setItem('logged_' + ref, 'true');
+
       fetch('https://script.google.com/macros/s/AKfycbw6VChSAVq8ZmUZOSCrdxVy8Gg7DOuOgi1zEc8uj53t5ijNesxW4ya1fsIh_QHzkUc0/exec', {
         method: 'POST',
         mode: 'no-cors',
@@ -115,7 +122,11 @@
           paystack_reference: ref
         })
       })
-      .then(() => console.log('Order logged to Google Sheet.'))
+      .then(() => {
+        console.log('Order logged to Google Sheet.');
+        // Clean the URL parameters so refreshing the tab doesn't re-trigger
+        window.history.replaceState({}, document.title, window.location.pathname + '?type=' + type);
+      })
       .catch(err => console.error('Dispatch error:', err));
     }
   </script>
