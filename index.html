@@ -37,6 +37,30 @@
   <meta name="twitter:description" content="ReseArc helps students and early-career researchers write better, think clearly, and publish with confidence — through books, mentorship, and workshops by Ifeoluwa Odeyemi." />
   <meta name="twitter:image" content="https://researc-website-6esvx89yi-godgen-tmg.vercel.app/book.png" />
 
+  <!-- Structured Data (Organization & Team Graph) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ReseArc",
+    "url": "https://researc-website-6esvx89yi-godgen-tmg.vercel.app/",
+    "founder": {
+      "@type": "Person",
+      "name": "Ifeoluwa Odeyemi",
+      "jobTitle": "Convener"
+    },
+    "member": [
+      { "@type": "Person", "name": "Ifeoluwa Odeyemi", "jobTitle": "Convener" },
+      { "@type": "Person", "name": "Okoedion Praise", "jobTitle": "Executive Assistant to the Convener" },
+      { "@type": "Person", "name": "Favour Faturoti", "jobTitle": "Digital & Tech Lead" },
+      { "@type": "Person", "name": "Marvellous Adesola", "jobTitle": "Design & Creative Lead" },
+      { "@type": "Person", "name": "Mercy Oluwabusuyi", "jobTitle": "Content Strategist" },
+      { "@type": "Person", "name": "Adesewa Adekitan", "jobTitle": "Community Manager" },
+      { "@type": "Person", "name": "David Oketoyin", "jobTitle": "Social Media Manager" }
+    ]
+  }
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" href="logo.png" type="image/png" />
 
@@ -86,6 +110,7 @@
           <a href="index.html" class="text-sm font-semibold text-wine-700">Home</a>
           <a href="#about" class="text-sm text-charcoal/80 hover:text-wine-700 transition-colors">About</a>
           <a href="#convener" class="text-sm text-charcoal/80 hover:text-wine-700 transition-colors">Convener</a>
+          <a href="#team" class="text-sm text-charcoal/80 hover:text-wine-700 transition-colors">Team</a>
           <a href="book.html" class="text-sm text-charcoal/80 hover:text-wine-700 transition-colors">Publications</a>
           <a href="#reviews" class="text-sm text-charcoal/80 hover:text-wine-700 transition-colors">Reviews</a>
           <a href="rd1.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-wine-700 bg-wine-700/10 px-3 py-1.5 rounded-full hover:bg-wine-700/20 transition-colors">
@@ -97,7 +122,7 @@
           <a href="book.html" class="hidden sm:inline-flex items-center rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors">
             Get the Book
           </a>
-          <button id="menu-toggle" type="button" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-wine-700 hover:bg-wine-700/5">
+          <button id="menu-toggle" type="button" aria-label="Toggle Navigation" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full text-wine-700 hover:bg-wine-700/5">
             <i data-lucide="menu" id="menu-icon-open" class="h-6 w-6"></i>
             <i data-lucide="x" id="menu-icon-close" class="h-6 w-6 hidden"></i>
           </button>
@@ -106,12 +131,13 @@
 
       <nav id="mobile-menu" class="md:hidden hidden pb-6">
         <div class="flex flex-col gap-1 border-t border-wine-700/10 pt-4">
-          <a href="index.html" class="px-2 py-3 text-sm font-semibold text-wine-700">Home</a>
-          <a href="#about" class="px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">About</a>
-          <a href="#convener" class="px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Convener</a>
-          <a href="book.html" class="px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Publications</a>
-          <a href="#reviews" class="px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Reviews</a>
-          <a href="rd1.html" class="px-2 py-3 text-sm font-semibold text-wine-700 flex items-center gap-2">
+          <a href="index.html" class="mobile-nav-link px-2 py-3 text-sm font-semibold text-wine-700">Home</a>
+          <a href="#about" class="mobile-nav-link px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">About</a>
+          <a href="#convener" class="mobile-nav-link px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Convener</a>
+          <a href="#team" class="mobile-nav-link px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Meet the Team</a>
+          <a href="book.html" class="mobile-nav-link px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Publications</a>
+          <a href="#reviews" class="mobile-nav-link px-2 py-3 text-sm text-charcoal/80 hover:text-wine-700">Reviews</a>
+          <a href="rd1.html" class="mobile-nav-link px-2 py-3 text-sm font-semibold text-wine-700 flex items-center gap-2">
             <i data-lucide="shield-check" class="w-4 h-4"></i> RD1 Student Onboarding
           </a>
           <a href="book.html" class="mt-2 inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-wine-900">Get the Book</a>
@@ -260,10 +286,10 @@
               <div class="absolute -inset-4 rounded-3xl bg-gold/20 blur-2xl"></div>
               <div class="relative rounded-2xl overflow-hidden shadow-xl border-2 border-wine-700/20 bg-wine-700">
                 <img 
-                  src="author.jpg" 
+                  src="Ifeoluwa.jpg" 
                   alt="Ifeoluwa Odeyemi — Convener of ReseArc" 
                   class="w-full h-auto object-cover aspect-[4/5]"
-                  onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Ifeoluwa+Odeyemi';"
+                  onerror="this.onerror=function(){this.src='https://via.placeholder.com/400x500?text=Ifeoluwa+Odeyemi';}; this.src='Ifeoluwa.jpg';"
                 />
                 <div class="p-3.5 bg-wine-900/90 text-center">
                   <p class="font-display text-base font-semibold text-paper">Ifeoluwa Odeyemi</p>
@@ -346,6 +372,178 @@
               <a href="book.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors w-full sm:w-auto">
                 <i data-lucide="book-open" class="h-4 w-4"></i> Read His Book
               </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET THE TEAM -->
+    <section id="team" class="py-16 lg:py-28 bg-paper border-t border-wine-700/10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="text-xs font-semibold uppercase tracking-widest text-wine-700 bg-wine-700/10 px-3.5 py-1 rounded-full">The People Behind ReseArc</span>
+          <h2 class="mt-4 font-display text-3xl sm:text-5xl font-semibold text-charcoal">Meet the Team</h2>
+          <p class="mt-3 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+            The dedicated minds stewarding our mentorship cohorts, publications, technology, and community across Nigeria.
+          </p>
+        </div>
+
+        <!-- Balanced 4 + 3 Centered Flex Grid -->
+        <div class="mt-12 lg:mt-16 flex flex-wrap justify-center gap-6 lg:gap-8">
+
+          <!-- 1. Ifeoluwa Odeyemi -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="Ifeoluwa.jpg"
+                alt="Ifeoluwa Odeyemi — Convener of ReseArc"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">IO</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">Ifeoluwa Odeyemi</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Convener</p>
+            </div>
+          </div>
+
+          <!-- 2. Okoedion Praise -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="Praise.jpg"
+                alt="Okoedion Praise — Executive Assistant to the Convener"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">OP</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">Okoedion Praise</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Executive Assistant to the Convener</p>
+            </div>
+          </div>
+
+          <!-- 3. Favour Faturoti -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="Favour.jpg"
+                alt="Favour Faturoti — Digital & Tech Lead"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">FF</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">Favour Faturoti</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Digital &amp; Tech Lead</p>
+            </div>
+          </div>
+
+          <!-- 4. Marvellous Adesola -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="Mavade.jpg"
+                alt="Marvellous Adesola — Design & Creative Lead"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">MA</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">Marvellous Adesola</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Design &amp; Creative Lead</p>
+            </div>
+          </div>
+
+          <!-- 5. Mercy Oluwabusuyi -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="Mercy-2.jpg"
+                alt="Mercy Oluwabusuyi — Content Strategist"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">MO</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">Mercy Oluwabusuyi</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Content Strategist</p>
+            </div>
+          </div>
+
+          <!-- 6. Adesewa Adekitan -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="Adesewa.jpg"
+                alt="Adesewa Adekitan — Community Manager"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">AA</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">Adesewa Adekitan</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Community Manager</p>
+            </div>
+          </div>
+
+          <!-- 7. David Oketoyin -->
+          <div class="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)] max-w-[290px] sm:max-w-none rounded-2xl border border-wine-700/15 bg-paper overflow-hidden shadow-sm hover:shadow-md hover:border-wine-700/30 transition-all duration-300 flex flex-col">
+            <div class="relative aspect-[4/5] w-full bg-wine-900 overflow-hidden">
+              <img
+                src="David.jpg"
+                alt="David Oketoyin — Social Media Manager"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="absolute inset-0 bg-gradient-to-br from-wine-700 to-wine-900 flex-col items-center justify-center p-6 text-center">
+                <span class="font-display text-3xl font-semibold text-gold tracking-wider">DO</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-gold"></div>
+            </div>
+            <div class="p-5 text-center flex-1 flex flex-col justify-center bg-paper">
+              <h3 class="font-display text-lg font-semibold text-charcoal group-hover:text-wine-700 transition-colors">David Oketoyin</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-wine-700">Social Media Manager</p>
             </div>
           </div>
 
@@ -482,6 +680,7 @@
             <a href="index.html" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">Home</a>
             <a href="#about" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">About</a>
             <a href="#convener" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">Convener</a>
+            <a href="#team" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">Meet the Team</a>
             <a href="book.html" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">Publications</a>
             <a href="rd1.html" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">RD1 Student Onboarding</a>
             <a href="#reviews" class="text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit">Reviews</a>
@@ -514,6 +713,15 @@
         mobileMenu.classList.toggle('hidden');
         openIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
+      });
+
+      // Automatically close mobile drawer when an anchor link is clicked
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
       });
     }
   </script>
