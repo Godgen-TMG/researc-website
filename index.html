@@ -160,8 +160,11 @@
           ReseArc is a research mentoring community for students, researchers, and anyone trying to make sense of the beautiful chaos called research writing.
         </p>
         <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="book.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors w-full sm:w-auto">
+          <a href="book.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors w-full sm:w-auto shadow-sm">
             <i data-lucide="book-open" class="h-4 w-4"></i> Get the Book &amp; Join Community
+          </a>
+          <a href="https://whatsapp.com/channel/0029Vb9P14mFCCoYdFNx6X10" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-wine-700/20 bg-paper px-6 py-3.5 text-sm font-semibold text-wine-700 hover:bg-wine-700/5 transition-colors w-full sm:w-auto">
+            <i data-lucide="radio" class="h-4 w-4 text-[#25D366]"></i> Follow WhatsApp Channel
           </a>
         </div>
       </div>
@@ -289,7 +292,7 @@
                   src="Ifeoluwa.jpg" 
                   alt="Ifeoluwa Odeyemi — Convener of ReseArc" 
                   class="w-full h-auto object-cover aspect-[4/5]"
-                  onerror="this.onerror=function(){this.src='https://via.placeholder.com/400x500?text=Ifeoluwa+Odeyemi';}; this.src='Ifeoluwa.jpg';"
+                  onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Ifeoluwa+Odeyemi';"
                 />
                 <div class="p-3.5 bg-wine-900/90 text-center">
                   <p class="font-display text-base font-semibold text-paper">Ifeoluwa Odeyemi</p>
@@ -659,9 +662,14 @@
           </div>
           <h2 class="mt-6 font-display text-2xl sm:text-4xl font-semibold text-paper max-w-xl mx-auto">ReseArc Telegram Mentorship Community</h2>
           <p class="mt-4 text-xs sm:text-base text-paper/70 leading-relaxed max-w-lg mx-auto">Get 1 full year of direct mentorship, research support, and ongoing guidance from Ifeoluwa Odeyemi. Community access is granted automatically with your purchase of <span class="text-gold italic">Research Writing Made Easy</span>.</p>
-          <a href="book.html" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors w-full sm:w-auto">
-            <i data-lucide="book-open" class="h-4 w-4"></i> Order Book to Join
-          </a>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="book.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-wine-900 hover:bg-gold-300 transition-colors w-full sm:w-auto shadow-md">
+              <i data-lucide="book-open" class="h-4 w-4"></i> Order Book to Join
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb9P14mFCCoYdFNx6X10" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[#20BA5A] transition-colors w-full sm:w-auto shadow-md">
+              <i data-lucide="radio" class="h-4 w-4"></i> Follow Public WhatsApp Channel
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -688,10 +696,11 @@
           </nav>
         </div>
         <div>
-          <p class="text-sm font-semibold text-gold">Contact</p>
+          <p class="text-sm font-semibold text-gold">Contact &amp; Public Channel</p>
           <div class="mt-3 flex flex-col gap-2.5">
             <a href="mailto:official.researc@gmail.com" class="flex items-center gap-2.5 text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit"><i data-lucide="mail" class="h-4 w-4 text-gold"></i> official.researc@gmail.com</a>
             <a href="https://wa.me/2348147177798" target="_blank" rel="noopener" class="flex items-center gap-2.5 text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit"><i data-lucide="message-circle" class="h-4 w-4 text-gold"></i> +234 814 717 7798</a>
+            <a href="https://whatsapp.com/channel/0029Vb9P14mFCCoYdFNx6X10" target="_blank" rel="noopener" class="flex items-center gap-2.5 text-xs sm:text-sm text-paper/70 hover:text-gold transition-colors w-fit"><i data-lucide="radio" class="h-4 w-4 text-gold"></i> Follow WhatsApp Channel</a>
           </div>
         </div>
       </div>
@@ -715,7 +724,6 @@
         closeIcon.classList.toggle('hidden');
       });
 
-      // Automatically close mobile drawer when an anchor link is clicked
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
