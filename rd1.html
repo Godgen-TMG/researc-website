@@ -212,10 +212,10 @@
             </div>
           </div>
 
-          <!-- UNIVERSAL PASSCODE FIELD -->
+          <!-- CLEAN UNIVERSAL PASSCODE FIELD (NO CODE IN PLACEHOLDER) -->
           <div class="p-3.5 bg-wine-700/5 rounded-xl border border-wine-700/20">
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-wine-700">Partnership Access Code</label>
-            <input type="text" id="stdCode" required placeholder="Enter code given by your association (e.g. RD1DAY1)" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs uppercase font-semibold focus:ring-wine-700 focus:border-wine-700 bg-white">
+            <input type="text" id="stdCode" required placeholder="Enter the code given by your association" class="mt-1 w-full rounded-lg border border-gray-300 p-2.5 text-xs uppercase font-semibold focus:ring-wine-700 focus:border-wine-700 bg-white">
           </div>
 
           <button id="btnSubmitData" type="submit" class="w-full mt-2 rounded-full bg-wine-700 px-6 py-3 text-xs font-semibold text-paper hover:bg-wine-800 transition-colors flex items-center justify-center gap-2">
@@ -332,6 +332,7 @@
       btn.disabled = true;
       btn.innerHTML = `<span>Saving Record...</span>`;
 
+      // CRITICAL: We pass access_code so the Apps Script backend reads it correctly
       const payload = {
         type: "rd1_onboarding",
         name: document.getElementById('stdName').value.trim(),
@@ -339,7 +340,8 @@
         phone: document.getElementById('stdPhone').value.trim(),
         institution: document.getElementById('stdInstitution').value.trim() + ' [Code: ' + enteredCode + ']',
         department: document.getElementById('stdDept').value.trim(),
-        level: document.getElementById('stdLevel').value
+        level: document.getElementById('stdLevel').value,
+        access_code: enteredCode
       };
 
       fetch(APPS_SCRIPT_URL, {
